@@ -31,6 +31,8 @@ const firestoreReducer = (state, action) => {
       return { ...state, duplicateItemMessage: '', successMessage: '' };
     case 'ERROR':
       return { ...state, isLoading: false, error: true, successMessage: '' };
+    default:
+      return null;
   }
 };
 

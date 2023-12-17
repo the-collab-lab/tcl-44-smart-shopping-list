@@ -1,5 +1,5 @@
-import { getToken } from '@the-collab-lab/shopping-list-utils';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { ArchivalNoticeModal } from '@the-collab-lab/shopping-list-utils';
+import { Navigate } from 'react-router-dom';
 //components
 import ShareTokenForm from './ShareTokenForm';
 import Button from '../components/Button';
@@ -10,16 +10,16 @@ import useToken from '../hooks/useToken';
 import bag from '../assets/images/bag.svg';
 
 const Home = () => {
-  let navigate = useNavigate();
   const { setToken } = useToken();
 
   const createToken = () => {
-    const newToken = getToken();
-    if (localStorage.getItem('token') === null) {
-      localStorage.setItem('token', newToken);
-      setToken(newToken);
-    }
-    navigate('/list');
+    // const newToken = getToken();
+    // if (localStorage.getItem('token') === null) {
+    //   localStorage.setItem('token', newToken);
+    //   setToken(newToken);
+    // }
+    // navigate('/list');
+    console.log('Creating lists is no longer supported');
   };
 
   if (localStorage.getItem('token')) {
@@ -46,6 +46,7 @@ const Home = () => {
 
         <ShareTokenForm setToken={setToken} />
       </section>
+      <ArchivalNoticeModal />
     </>
   );
 };
